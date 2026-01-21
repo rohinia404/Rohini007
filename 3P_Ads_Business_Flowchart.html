@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay 3P Ads - Business Model Flowchart</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .flowchart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #2d3748;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding: 8px 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .badge-green {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-red {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .badge-blue {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .revenue-formula {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        td {
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .highlight-box {
+            background: #fef5e7;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            color: #d68910;
+            margin-bottom: 10px;
+        }
+
+        .mermaid {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Razorpay 3P Ads Network - Business Model</h1>
+            <p>Data-driven advertising network monetizing payment gateway transaction data</p>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-label">Weekly Ad Spends</div>
+                    <div class="stat-value">₹754K</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Weekly Growth</div>
+                    <div class="stat-value">+57.67%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Active Publishers</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Active Advertisers</div>
+                    <div class="stat-value">8+</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Weekly Impressions</div>
+                    <div class="stat-value">17.7M</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Pixel Merchants</div>
+                    <div class="stat-value">10</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Business Model Flowchart</div>
+            <div class="flowchart-container">
+                <div class="mermaid">
+graph TB
+    subgraph DataSources["📊 Data Sources"]
+        A["💳 Razorpay Payment Gateway<br/>Transaction Data<br/>Category, AOV, Purchase History"]
+        C["📍 Merchant Pixel Data<br/>10 Merchants Live<br/>7-21% ID Rate"]
+        D["🎯 Behavioral Data<br/>Cross-Merchant Intelligence"]
+    end
+
+    subgraph Segments["🎯 Audience Segments"]
+        E["L0: Category Affinity<br/>Users in specific categories<br/>40% Success Rate"]
+        F["L1: Category Lift<br/>Premium brand shoppers<br/>ROAS: 6-26x"]
+        G["L2: Lookalike<br/>Modeled audiences<br/>Income-based"]
+        H["L3: Pixel Lookalike<br/>Advanced behavioral<br/>LAUNCHED 21/01"]
+    end
+
+    subgraph Marketplace["🏪 Three-Sided Marketplace"]
+        I["📢 ADVERTISERS<br/>Swiggy • Honasa • Axis Maxlife<br/>Kiwi • Giva • Zoomin"]
+        K["⚙️ RAZORPAY PLATFORM<br/>Matching Engine<br/>Performance Tracking"]
+        J["📱 PUBLISHERS<br/>Flipkart • Fampay • Navi<br/>17.7M Impressions/week"]
+    end
+
+    subgraph Revenue["💰 Revenue Model"]
+        L["Net Revenue (NR)<br/>= Ad Spend - Publisher Revenue"]
+        M["💎 Razorpay Margin<br/>High-Margin Business<br/>~20-30% estimated"]
+    end
+
+    A --> E
+    A --> F
+    C --> H
+    D --> G
+
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+
+    I -->|"💵 Ad Spend<br/>₹754K/week"| K
+    K -->|"🎁 Targeted Segments<br/>L0, L1, L2, L3"| I
+    K -->|"💸 Publisher Revenue"| J
+    J -->|"📊 Ad Inventory<br/>17.7M Impressions"| K
+
+    K --> L
+    L --> M
+
+    classDef dataStyle fill:#e1f5ff,stroke:#3182ce,stroke-width:2px
+    classDef segmentStyle fill:#fef5e7,stroke:#f39c12,stroke-width:2px
+    classDef marketStyle fill:#ffe1e1,stroke:#e53e3e,stroke-width:2px
+    classDef revenueStyle fill:#c6f6d5,stroke:#38a169,stroke-width:2px
+
+    class A,C,D dataStyle
+    class E,F,G,H segmentStyle
+    class I,J,K marketStyle
+    class L,M revenueStyle
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Revenue Formula</div>
+            <div class="formula-box">
+                <div class="revenue-formula">Net Revenue (NR) = Ad Spend - Publisher Revenue</div>
+                <div>Weekly: ₹754K ad spend → ~₹150-226K Razorpay margin (20-30%)</div>
+                <div style="margin-top: 10px; font-size: 16px;">Annual Potential: ₹10-12Cr at current scale</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Three-Sided Marketplace Participants</div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📢 Advertisers (Demand Side)</h3>
+                    <table>
+                        <tr>
+                            <th>Advertiser</th>
+                            <th>Weekly Spend</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Swiggy (Navi)</td>
+                            <td>₹200,928</td>
+                            <td><span class="badge badge-red">Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Swiggy (Fampay)</td>
+                            <td>₹128,810</td>
+                            <td><span class="badge badge-red">Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Honasa (FK)</td>
+                            <td>₹142,445</td>
+                            <td><span class="badge badge-green">Green</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kiwi</td>
+                            <td>₹132,089</td>
+                            <td><span class="badge badge-red">Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Axis Maxlife</td>
+                            <td>₹99,700</td>
+                            <td><span class="badge badge-red">Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Giva</td>
+                            <td>₹44,250</td>
+                            <td><span class="badge badge-red">Red</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info-card">
+                    <h3>📱 Publishers (Supply Side)</h3>
+                    <table>
+                        <tr>
+                            <th>Publisher</th>
+                            <th>Impressions</th>
+                            <th>Goal</th>
+                        </tr>
+                        <tr>
+                            <td>Flipkart</td>
+                            <td>528,341</td>
+                            <td>0.4 CPD ✅</td>
+                        </tr>
+                        <tr>
+                            <td>Fampay</td>
+                            <td>640,355</td>
+                            <td>₹10L/month</td>
+                        </tr>
+                        <tr>
+                            <td>Navi</td>
+                            <td>16.5M</td>
+                            <td>3/5 success ✅</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Segment Performance</h3>
+                    <table>
+                        <tr>
+                            <th>Segment</th>
+                            <th>Success Rate</th>
+                            <th>Example ROAS</th>
+                        </tr>
+                        <tr>
+                            <td>L0: Category Affinity</td>
+                            <td>40%</td>
+                            <td>2-4x</td>
+                        </tr>
+                        <tr>
+                            <td>L1: Category Lift</td>
+                            <td>40%</td>
+                            <td>6-26x</td>
+                        </tr>
+                        <tr>
+                            <td>L2: Lookalike</td>
+                            <td>Testing</td>
+                            <td>2x goal</td>
+                        </tr>
+                        <tr>
+                            <td>L3: Pixel (NEW)</td>
+                            <td>Just launched</td>
+                            <td>TBD</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Data Monetization Strategy</div>
+
+            <div class="highlight-box">
+                <h4>🔐 Razorpay's Competitive Advantage</h4>
+                <p>Razorpay has <strong>unique first-party payment data</strong> from merchants using their payment gateway. This data provides the highest intent signal - actual purchase behavior, not just browsing.</p>
+            </div>
+
+            <h3 style="color: #2d3748; margin: 20px 0 10px 0;">Segment Types</h3>
+
+            <table>
+                <tr>
+                    <th>Segment</th>
+                    <th>Definition</th>
+                    <th>Example</th>
+                    <th>Performance</th>
+                </tr>
+                <tr>
+                    <td><strong>L0: Category Affinity</strong></td>
+                    <td>Users transacting on specific brand categories</td>
+                    <td>Mid-premium skincare buyers (₹500-₹1,200 AOV)</td>
+                    <td>40% success rate</td>
+                </tr>
+                <tr>
+                    <td><strong>L1: Category Lift</strong></td>
+                    <td>Users showing lift in shopping for premium brands</td>
+                    <td>Increasing mid-premium purchases</td>
+                    <td>Mamaearth: 6.3x ROAS<br/>The Derma Co: 26.7x ROAS</td>
+                </tr>
+                <tr>
+                    <td><strong>L2: Lookalike</strong></td>
+                    <td>Modeled audiences based on past buyers</td>
+                    <td>Past insurance buyers with income >₹6L</td>
+                    <td>CPQL 2x goal (optimizing)</td>
+                </tr>
+                <tr>
+                    <td><strong>L3: Pixel Lookalike</strong></td>
+                    <td>Advanced behavioral using merchant pixels</td>
+                    <td>Aqualogica website visitors + transaction data</td>
+                    <td>First cohort live 21/01/2026</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #2d3748; margin: 30px 0 10px 0;">Pixel Strategy - 10 Merchants Live</h3>
+
+            <table>
+                <tr>
+                    <th>Merchant</th>
+                    <th>Weekly Sessions</th>
+                    <th>Identified Sessions</th>
+                    <th>ID Rate</th>
+                </tr>
+                <tr>
+                    <td>Renee Cosmetics</td>
+                    <td>242,504</td>
+                    <td>25,463</td>
+                    <td><strong>10.5%</strong></td>
+                </tr>
+                <tr>
+                    <td>Aqualogica</td>
+                    <td>43,621</td>
+                    <td>5,801</td>
+                    <td><strong>13.3%</strong></td>
+                </tr>
+                <tr>
+                    <td>Sujatra</td>
+                    <td>12,436</td>
+                    <td>1,903</td>
+                    <td><strong>15.3%</strong></td>
+                </tr>
+                <tr>
+                    <td>Tata Nutrikorner</td>
+                    <td>27,254</td>
+                    <td>2,834</td>
+                    <td><strong>10.4%</strong></td>
+                </tr>
+                <tr>
+                    <td>BeBlunt</td>
+                    <td>22,541</td>
+                    <td>2,029</td>
+                    <td><strong>9.0%</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center; font-style: italic; color: #718096;">
+                        + 5 more merchants (Dr Seth's, Anuvas, Rivela, Nutritionalab, Korebi Coffee)
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Key Success Metrics</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📈 Week-over-Week Growth (12/01 vs 05/01)</h3>
+                    <ul>
+                        <li>Ad Spends: <strong>+57.67%</strong> (₹754K vs ₹478K)</li>
+                        <li>Flipkart: <strong>+28.5%</strong> (₹263K)</li>
+                        <li>Fampay: <strong>+162.5%</strong> (₹145K) - Swiggy scaling</li>
+                        <li>Navi: <strong>+58.3%</strong> (₹344K) - Swiggy scaling</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>⚠️ Month-to-Date Challenges (Jan vs Dec)</h3>
+                    <ul>
+                        <li>Ad Spends: <strong>-33.89%</strong> (₹1.46M vs ₹2.22M)</li>
+                        <li>Axis Maxlife (FK): -72.6% (₹305K loss)</li>
+                        <li>Swiggy (Fampay): -59.36% (₹253K loss)</li>
+                        <li>Honasa (FK): -45.9% (₹249K loss)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>✅ Success Stories</h3>
+                    <ul>
+                        <li>Mamaearth L1: <strong>6.3x ROAS</strong> (vs 1.95x FK TG)</li>
+                        <li>The Derma Co L1: <strong>26.7x ROAS</strong> (vs 1.23x FK TG)</li>
+                        <li>Zoomin (Fampay): <strong>+102.9%</strong> growth</li>
+                        <li>New advertisers: Kiwi (+₹149K), Giva (+₹56K)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Strategic Value Proposition</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Why Advertisers Pay Razorpay</h3>
+                    <ul>
+                        <li><strong>Behavioral Precision:</strong> Insurance buyers with specific income bands</li>
+                        <li><strong>Cross-Platform Reach:</strong> User behavior across multiple merchant sites</li>
+                        <li><strong>Intent Data:</strong> Payment completion = highest intent signal</li>
+                        <li><strong>Better Performance:</strong> RZP segments 2-26x better ROAS vs publisher segments</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Why Publishers Participate</h3>
+                    <ul>
+                        <li><strong>Incremental Revenue:</strong> Additional income from existing inventory</li>
+                        <li><strong>Better Targeting:</strong> Access to cross-merchant behavioral data</li>
+                        <li><strong>No Build Costs:</strong> Don't need own lookalike modeling</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Why Razorpay Wins</h3>
+                    <ul>
+                        <li><strong>Low Marginal Cost:</strong> Data is byproduct of payment business</li>
+                        <li><strong>High Margins:</strong> ~20-30% estimated</li>
+                        <li><strong>Network Effects:</strong> More merchants → better segments → more advertisers</li>
+                        <li><strong>Ecosystem Deepening:</strong> Stronger merchant retention</li>
+                        <li><strong>Privacy-Compliant:</strong> Aggregate cohorts, not individual data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Growth Levers & Path Forward</div>
+
+            <h3 style="color: #2d3748; margin: 20px 0 10px 0;">Immediate Priorities (Q1 2026)</h3>
+
+            <div class="highlight-box">
+                <h4>🎯 Goal: 2x December's Net Revenue</h4>
+                <p><strong>Current Status:</strong> Behind goal due to 33.89% MTD decline</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Priority</th>
+                    <th>Action</th>
+                    <th>Status</th>
+                    <th>Impact</th>
+                </tr>
+                <tr>
+                    <td>Fix RED Advertisers</td>
+                    <td>Optimize Axis Maxlife, scale Aqualogica L3</td>
+                    <td>🔄 In Progress</td>
+                    <td>+₹300-400K MTD</td>
+                </tr>
+                <tr>
+                    <td>Scale RZP Segments</td>
+                    <td>Increase CPC, push for higher budgets on ME/TDC</td>
+                    <td>✅ CPC raised to ₹10</td>
+                    <td>+₹200K MTD</td>
+                </tr>
+                <tr>
+                    <td>Swiggy Scale-back</td>
+                    <td>Return to December volume levels</td>
+                    <td>✅ Scaling resumed</td>
+                    <td>+₹380K MTD</td>
+                </tr>
+                <tr>
+                    <td>Expand Pixel Network</td>
+                    <td>Add 15 more merchants (10→25)</td>
+                    <td>🔄 In Progress</td>
+                    <td>Better L3 segments</td>
+                </tr>
+                <tr>
+                    <td>New Publisher</td>
+                    <td>Truecaller for card campaigns</td>
+                    <td>🔄 Planned</td>
+                    <td>+₹100-200K weekly</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #2d3748; margin: 30px 0 10px 0;">Medium-Term Strategy (2026)</h3>
+
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 10px; border-left: 4px solid #667eea; margin-bottom: 10px; background: #f7fafc;">
+                    <strong>Vertical Expansion:</strong> Activate Fashion & Mass BPC segments (currently 0 active advertisers)
+                </li>
+                <li style="padding: 10px; border-left: 4px solid #667eea; margin-bottom: 10px; background: #f7fafc;">
+                    <strong>Segment Intelligence:</strong> Build performance benchmarks, predictive ROAS modeling
+                </li>
+                <li style="padding: 10px; border-left: 4px solid #667eea; margin-bottom: 10px; background: #f7fafc;">
+                    <strong>Self-Service Platform:</strong> Enable advertisers to select segments, set budgets, view real-time performance
+                </li>
+                <li style="padding: 10px; border-left: 4px solid #667eea; margin-bottom: 10px; background: #f7fafc;">
+                    <strong>Diversification:</strong> Reduce concentration risk (top 3 advertisers = 75% revenue)
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Financial Projections</div>
+
+            <div class="formula-box">
+                <div style="margin-bottom: 15px;">Assuming 20-30% Margin (Industry Standard)</div>
+                <div style="font-size: 18px; margin-bottom: 10px;">Weekly: ₹200K avg margin</div>
+                <div style="font-size: 18px; margin-bottom: 10px;">Monthly: ₹800K - ₹1Cr</div>
+                <div style="font-size: 22px; margin-top: 15px;"><strong>Annual Potential: ₹10-12Cr</strong></div>
+                <div style="font-size: 16px; margin-top: 10px; opacity: 0.9;">With 3-5x growth potential as advertiser base expands</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Competitive Moat</div>
+
+            <div class="info-grid">
+                <div class="info-card" style="border-top-color: #38a169;">
+                    <h3>🔐 First-Party Payment Data</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Unique to payment gateways. While Google/Meta have browsing data,
+                        Razorpay has <strong>actual transaction data</strong> = highest intent signal.
+                        Impossible for others to replicate.
+                    </p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #3182ce;">
+                    <h3>🌐 Cross-Merchant Intelligence</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Single user's behavior across 100+ merchant sites. Publishers only see
+                        their own site. Creates segments <strong>impossible for others to build</strong>.
+                    </p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #805ad5;">
+                    <h3>💎 Zero Data Acquisition Cost</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Data is byproduct of core payment processing. No additional CAC.
+                        <strong>High margin incremental revenue</strong> with minimal COGS.
+                    </p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #d69e2e;">
+                    <h3>🤝 Merchant Relationship</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Already trusted partner for payments. Easy pixel installation.
+                        <strong>Upsell opportunity</strong> to existing customer base.
+                    </p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #38b2ac;">
+                    <h3>🛡️ Privacy Positioning</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Aggregate cohorts, not individual targeting. Compliant with future
+                        privacy regulations. <strong>Sustainable competitive advantage</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title">Conclusion</div>
+
+            <p style="color: #4a5568; line-height: 1.8; margin-bottom: 20px;">
+                The Razorpay 3P Ads Network represents a <strong>high-margin, data-driven revenue stream</strong>
+                that leverages the company's core payment gateway asset. By monetizing first-party transaction
+                data through audience segmentation, Razorpay creates a three-sided marketplace connecting
+                advertisers with publishers.
+            </p>
+
+            <div class="highlight-box">
+                <h4>Key Success Factors</h4>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>✅ <strong>Unique Data Asset:</strong> First-party payment data unavailable to competitors</li>
+                    <li>✅ <strong>Proven Performance:</strong> L1 segments showing 6-26x ROAS</li>
+                    <li>✅ <strong>Expanding Pixel Network:</strong> 10 merchants, growing to 25+</li>
+                    <li>🔄 <strong>Scaling Challenge:</strong> Need to move RZP segments from 15-25% to 40%+ of volume</li>
+                    <li>🔄 <strong>Advertiser Health:</strong> 75% in RED status, requires immediate optimization</li>
+                </ul>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-top: 30px; text-align: center;">
+                <h3 style="margin-bottom: 15px; font-size: 24px;">Revenue Potential</h3>
+                <div style="font-size: 36px; font-weight: 700; margin-bottom: 10px;">₹10-12Cr Annual NR</div>
+                <div style="font-size: 18px; opacity: 0.9;">at current scale</div>
+                <div style="font-size: 18px; margin-top: 15px; opacity: 0.9;">
+                    With <strong>3-5x growth potential</strong> as advertiser base and segment library expand
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 30px; color: white;">
+            <p style="opacity: 0.8;">Document Version: 1.0 • Last Updated: 21 January 2026 • Owner: Razorpay 3P Ads Team</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
