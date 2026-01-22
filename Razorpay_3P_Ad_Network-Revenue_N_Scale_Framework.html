@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay 3P Ads Network - Business Model</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #072B6F 0%, #0A4099 50%, #528AAE 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #072B6F;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: #528AAE;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero .description {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #072B6F;
+            margin-bottom: 25px;
+            font-weight: 700;
+            border-bottom: 4px solid #528AAE;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #0A4099;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .flowchart-container {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #528AAE;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            color: #072B6F;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-card p, .info-card ul {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .info-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #528AAE;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #528AAE 0%, #0A4099 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .highlight-box p {
+            font-size: 17px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .example-box {
+            background: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .example-box h4 {
+            color: #d97706;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .example-box p {
+            color: #78350f;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #072B6F;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        tr:hover td {
+            background: #f7fafc;
+        }
+
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .value-prop-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #528AAE;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-prop-card .icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .value-prop-card h4 {
+            color: #072B6F;
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .value-prop-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #072B6F 0%, #0A4099 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .formula-box .formula {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .formula-box .explanation {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .mermaid {
+            background: white;
+        }
+
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #528AAE;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #072B6F;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 150px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #528AAE;
+        }
+
+        .process-step .step-number {
+            background: #072B6F;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 15px auto;
+        }
+
+        .process-step h4 {
+            color: #072B6F;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: #4a5568;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .process-arrow {
+            font-size: 24px;
+            color: #528AAE;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            .process-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🚀 Razorpay 3P Ads Network</h1>
+            <div class="tagline">Transaction Intelligence-Powered Advertising Marketplace</div>
+            <p class="description">
+                Razorpay operates a three-sided marketplace that monetizes first-party payment and transaction data
+                by connecting advertisers seeking high-intent audiences with publishers who have premium ad inventory.
+                The platform creates superior targeting through proprietary audience segments built from 220M+ active
+                transacting users across 12M+ merchants, delivering 95%+ purchase-proven accuracy compared to 60-70%
+                probabilistic targeting from traditional platforms.
+            </p>
+        </div>
+
+        <!-- Core Business Model -->
+        <div class="section">
+            <div class="section-title">
+                <span>💡</span> Core Business Model
+            </div>
+
+            <div class="flowchart-container">
+                <div class="mermaid">
+graph TB
+    subgraph DataLayer["🗄️ DATA LAYER - Razorpay's Unique Asset"]
+        A["💳 Payment Gateway Data<br/>220M+ Active Users<br/>12M+ Merchants<br/>10+ Years History"]
+        B["📍 Merchant Pixel Data<br/>Customer Behavior Signals<br/>Browse → Purchase Journey"]
+        C["🎯 Cross-Merchant Intelligence<br/>RFM Analysis<br/>Category Affinity<br/>Purchase Patterns"]
+    end
+
+    subgraph SegmentEngine["⚙️ AUDIENCE SEGMENTATION ENGINE"]
+        D["Behavioral Segments<br/>• Purchase Frequency<br/>• RFM Cohorts<br/>• Category Affinity"]
+        E["Transactional Segments<br/>• AOV Bands<br/>• Payment Preferences<br/>• Spend Volume"]
+        F["Demographic Segments<br/>• Location Cohorts<br/>• Income Indicators<br/>• Lifestyle Patterns"]
+        G["Advanced Lookalikes<br/>• Pixel-based Modeling<br/>• Cross-Category Intelligence<br/>• Predictive Scoring"]
+    end
+
+    subgraph Marketplace["🏪 THREE-SIDED MARKETPLACE"]
+        H["📢 ADVERTISERS<br/>D2C Brands • BFSI • Fintech<br/>Food Delivery • Fashion"]
+        I["⚙️ RAZORPAY PLATFORM<br/>Segment Matching<br/>Campaign Management<br/>Performance Tracking"]
+        J["📱 PUBLISHERS<br/>E-commerce • Fintech Apps<br/>Aggregators • Media Platforms"]
+    end
+
+    subgraph Revenue["💰 REVENUE MODEL"]
+        K["Advertiser Spend<br/>CPM / CPC / CPA Pricing"]
+        L["Publisher Revenue<br/>70-80% Revenue Share"]
+        M["Razorpay Margin<br/>20-30% Net Revenue<br/>High-Margin Business"]
+    end
+
+    A --> D
+    A --> E
+    B --> G
+    C --> D
+    C --> E
+    C --> F
+
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+
+    H -->|"💵 Ad Budget"| I
+    I -->|"🎯 Targeted Segments"| H
+    I -->|"💸 Revenue Share"| J
+    J -->|"📊 Ad Inventory"| I
+
+    I --> K
+    K --> L
+    K --> M
+
+    classDef dataStyle fill:#e1f5ff,stroke:#072B6F,stroke-width:3px
+    classDef segmentStyle fill:#fef5e7,stroke:#f59e0b,stroke-width:2px
+    classDef marketStyle fill:#fee2e2,stroke:#dc2626,stroke-width:2px
+    classDef revenueStyle fill:#d1fae5,stroke:#059669,stroke-width:3px
+
+    class A,B,C dataStyle
+    class D,E,F,G segmentStyle
+    class H,I,J marketStyle
+    class K,L,M revenueStyle
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 The Core Value Proposition</h3>
+                <p>
+                    Razorpay sits at the intersection of payments and advertising, leveraging transaction data
+                    (the highest intent signal) to build audience segments with 95%+ purchase accuracy. Unlike
+                    Google/Meta's interest-based targeting, Razorpay's segments are based on actual spending behavior,
+                    delivering superior ROAS for advertisers while generating incremental revenue for publishers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Three-Sided Marketplace Explained -->
+        <div class="section">
+            <div class="section-title">
+                <span>🔄</span> Three-Sided Marketplace Dynamics
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📢 Side 1: Advertisers (Demand)</h3>
+                    <p><strong>Who they are:</strong></p>
+                    <ul>
+                        <li>D2C Brands (Beauty, Fashion, Electronics)</li>
+                        <li>BFSI Companies (Insurance, Credit Cards)</li>
+                        <li>Fintech Platforms (Lending, Payments)</li>
+                        <li>Food Delivery & Quick Commerce</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>What they need:</strong></p>
+                    <ul>
+                        <li>High-intent audiences proven to purchase</li>
+                        <li>Better ROAS than traditional platforms</li>
+                        <li>Lower CAC with superior targeting</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>📱 Side 2: Publishers (Supply)</h3>
+                    <p><strong>Who they are:</strong></p>
+                    <ul>
+                        <li>E-commerce Platforms (Flipkart, Myntra)</li>
+                        <li>Fintech Apps (FamPay, Navi, CRED)</li>
+                        <li>Aggregator Platforms (Truecaller)</li>
+                        <li>Quick Commerce (Blinkit, Zepto)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>What they need:</strong></p>
+                    <ul>
+                        <li>Incremental revenue from existing inventory</li>
+                        <li>Better targeting than self-built segments</li>
+                        <li>Managed solution without tech investment</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>⚙️ Side 3: Razorpay (Platform)</h3>
+                    <p><strong>What Razorpay provides:</strong></p>
+                    <ul>
+                        <li>Proprietary audience segments from payment data</li>
+                        <li>Matching engine connecting demand & supply</li>
+                        <li>Campaign management & optimization</li>
+                        <li>Performance tracking & attribution</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>How Razorpay wins:</strong></p>
+                    <ul>
+                        <li>20-30% margin on ad spend</li>
+                        <li>Zero marginal data acquisition cost</li>
+                        <li>Network effects from ecosystem growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Model Deep Dive -->
+        <div class="section">
+            <div class="section-title">
+                <span>💰</span> Revenue Model & Economics
+            </div>
+
+            <div class="formula-box">
+                <div class="formula">Net Revenue = Ad Spend - Publisher Payout</div>
+                <div class="explanation">
+                    Razorpay earns margin by taking a share of advertiser spend after paying publishers for inventory.<br/>
+                    Industry-standard margin: 20-30% | High margin due to zero data acquisition cost
+                </div>
+            </div>
+
+            <div class="section-subtitle">📊 Revenue Flow Example</div>
+
+            <div class="example-box">
+                <h4>💼 Example Campaign: Premium Skincare Brand on Flipkart</h4>
+                <p>
+                    <strong>Scenario:</strong> A D2C skincare brand (Mamaearth) wants to target "mid-premium beauty shoppers"
+                    on Flipkart's platform.<br/><br/>
+
+                    <strong>1. Advertiser Pays Razorpay:</strong> ₹1,00,000 for campaign<br/>
+                    <strong>2. Razorpay Provides:</strong> "L1 Category Lift" segment (users increasing premium beauty purchases)<br/>
+                    <strong>3. Publisher (Flipkart) Receives:</strong> ₹70,000 - ₹80,000 (70-80% revenue share)<br/>
+                    <strong>4. Razorpay Keeps:</strong> ₹20,000 - ₹30,000 (20-30% margin)<br/><br/>
+
+                    <strong>Results:</strong> Campaign delivers 6.3x ROAS (vs 1.95x with Flipkart's own segments),
+                    proving the value of transaction-based targeting.
+                </p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pricing Model</th>
+                        <th>How It Works</th>
+                        <th>Use Case</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CPM</strong><br/>(Cost Per Mille)</td>
+                        <td>Advertiser pays per 1,000 impressions</td>
+                        <td>Brand awareness campaigns</td>
+                        <td>₹50 CPM = ₹5,000 for 100K impressions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPC</strong><br/>(Cost Per Click)</td>
+                        <td>Advertiser pays per click on ad</td>
+                        <td>Performance marketing, lead generation</td>
+                        <td>₹10 CPC = ₹10,000 for 1,000 clicks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPA</strong><br/>(Cost Per Action)</td>
+                        <td>Advertiser pays per conversion/acquisition</td>
+                        <td>App installs, credit card applications</td>
+                        <td>₹800 CIPA = ₹80,000 for 100 card applications</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Data Monetization Strategy -->
+        <div class="section">
+            <div class="section-title">
+                <span>🗄️</span> Data Monetization Strategy
+            </div>
+
+            <p style="color: #4a5568; line-height: 1.8; margin-bottom: 25px; font-size: 16px;">
+                Razorpay's competitive moat lies in its first-party payment data. Every transaction processed through
+                the payment gateway generates behavioral insights: what users buy, when they buy, how much they spend,
+                and their payment preferences. This data is aggregated into proprietary audience segments.
+            </p>
+
+            <div class="section-subtitle">🎯 Audience Segment Tiers</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment Type</th>
+                        <th>Data Source</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>L0: Category Affinity</strong></td>
+                        <td>Payment Gateway Transactions</td>
+                        <td>Users transacting in specific categories</td>
+                        <td>"Users who buy mid-premium skincare (₹500-₹1,200 AOV)"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>L1: Category Lift</strong></td>
+                        <td>Payment Gateway + Behavioral Analysis</td>
+                        <td>Users showing lift in premium brand shopping</td>
+                        <td>"Users increasing frequency of premium beauty purchases"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>L2: Lookalike</strong></td>
+                        <td>Payment Gateway + Modeling</td>
+                        <td>Modeled audiences based on past buyer profiles</td>
+                        <td>"Users similar to past insurance buyers (income >₹6L)"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>L3: Pixel Lookalike</strong></td>
+                        <td>Merchant Pixel + Transaction Data</td>
+                        <td>Advanced behavioral combining web + payment data</td>
+                        <td>"Browsed Aqualogica website + premium beauty purchase history"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <h4>🔍 Real Example: Targeting "High-Intent Credit Card Applicants"</h4>
+                <p>
+                    <strong>Traditional Targeting (Google/Meta):</strong> "Males 25-45, interested in finance, premium phone users"<br/>
+                    → Based on browsing behavior and demographics<br/>
+                    → 60-70% accuracy (many won't actually apply)<br/><br/>
+
+                    <strong>Razorpay L2 Segment:</strong> "Users who applied for credit cards in past 6 months + annual income >₹6L"<br/>
+                    → Based on actual financial behavior from transactions<br/>
+                    → 95%+ accuracy (proven credit seekers with qualifying income)<br/><br/>
+
+                    <strong>Result:</strong> 3-5x lower CAC for card issuer, higher approval rates, better quality leads.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 2,500+ Audience Segments Available</h3>
+                <p>
+                    Razorpay has built a library of over 2,500 audience cohorts across behavioral, transactional,
+                    and demographic dimensions. These include: Purchase Frequency (one-time, repeat, power buyers) •
+                    AOV Bands (budget, mid-tier, premium) • RFM Cohorts (high-value loyalists, at-risk, win-back targets) •
+                    Category Affinity (fashion, beauty, electronics, grocery, fintech) • Payment Preferences (UPI-first,
+                    card loyalists, BNPL adopters) • Lifestyle Indicators (subscription lovers, deal seekers, brand loyalists).
+                </p>
+            </div>
+        </div>
+
+        <!-- Ad Serving Flow -->
+        <div class="section">
+            <div class="section-title">
+                <span>🔄</span> How Ad Serving Works
+            </div>
+
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>User Visits Publisher</h4>
+                    <p>Customer opens Flipkart app, triggering ad slot availability</p>
+                </div>
+                <div class="process-arrow">→</div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Publisher Calls API</h4>
+                    <p>Flipkart sends user hash + slot details to Razorpay Fetch Ads API</p>
+                </div>
+                <div class="process-arrow">→</div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Segment Matching</h4>
+                    <p>Razorpay identifies user belongs to "Premium Beauty Buyers" segment</p>
+                </div>
+                <div class="process-arrow">→</div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Ad Selection</h4>
+                    <p>Matching engine selects best ad from active campaigns targeting this segment</p>
+                </div>
+                <div class="process-arrow">→</div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Ad Rendering</h4>
+                    <p>Publisher displays Mamaearth ad with creative assets from API response</p>
+                </div>
+                <div class="process-arrow">→</div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Tracking & Attribution</h4>
+                    <p>Publisher fires impression/click events back to Razorpay for billing</p>
+                </div>
+            </div>
+
+            <div class="flowchart-container">
+                <div class="mermaid">
+sequenceDiagram
+    participant User
+    participant Publisher as Publisher<br/>(Flipkart)
+    participant RZP as Razorpay<br/>Ad Platform
+    participant CDP as Customer Data<br/>Platform
+    participant Advertiser as Advertiser<br/>(Mamaearth)
+
+    User->>Publisher: Opens app/website
+    Publisher->>RZP: POST /ads/serve<br/>{user_hash, slot_id}
+    RZP->>CDP: Identify user segments
+    CDP-->>RZP: Returns: "Premium_Beauty_Buyer"
+    RZP->>RZP: Match segment to active campaigns
+    RZP-->>Publisher: Returns ad creative + tracking URLs
+    Publisher->>User: Displays Mamaearth ad
+    User->>Publisher: Clicks on ad
+    Publisher->>RZP: POST /track/click
+    Publisher->>Advertiser: Redirects to brand website
+    User->>Advertiser: Makes purchase
+    Advertiser->>RZP: Conversion event (optional)
+    RZP->>RZP: Calculate billing<br/>Advertiser: CPC charge<br/>Publisher: Revenue share
+                </div>
+            </div>
+        </div>
+
+        <!-- Publisher Models -->
+        <div class="section">
+            <div class="section-title">
+                <span>📱</span> Publisher Integration Models
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card" style="border-left-color: #059669;">
+                    <h3>🤝 Razorpay-Managed Publishers</h3>
+                    <p><strong>Who:</strong> Publishers new to ads (FamPay, Navi, Vodafone, Shopify merchants)</p>
+
+                    <p style="margin-top: 15px;"><strong>How it works:</strong></p>
+                    <ul>
+                        <li>Razorpay handles entire ad stack end-to-end</li>
+                        <li>Demand generation, targeting, serving, rendering</li>
+                        <li>Publisher provides inventory, receives revenue share</li>
+                        <li>Real-time API integration for ad fetching & tracking</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong>Why they choose this:</strong></p>
+                    <ul>
+                        <li>No need to build in-house ad tech team</li>
+                        <li>Fast time-to-market (< 1 week integration)</li>
+                        <li>Access to premium demand from Razorpay advertisers</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #dc2626;">
+                    <h3>🎯 Self-Managed Publishers</h3>
+                    <p><strong>Who:</strong> Publishers with existing ad ops (Flipkart, Blinkit, Truecaller, PhonePe)</p>
+
+                    <p style="margin-top: 15px;"><strong>How it works:</strong></p>
+                    <ul>
+                        <li>Publisher controls placement & rendering</li>
+                        <li>Razorpay provides demand + targeting segments</li>
+                        <li>Offline segment ingestion or real-time API</li>
+                        <li>Publisher manages budget & frequency caps</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong>Why they choose this:</strong></p>
+                    <ul>
+                        <li>Additional high-quality demand source</li>
+                        <li>Access to Razorpay's unique audience segments</li>
+                        <li>Improve fill rates without new SDK integration</li>
+                        <li>Enhance targeting with cross-merchant data</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📊 Integration Comparison</h4>
+                <p>
+                    <strong>FamPay (Razorpay-Managed):</strong> Integrated in 5 days using Fetch Ads API. Razorpay handles
+                    demand from Swiggy, Honasa, etc. FamPay renders ads and fires tracking events. Target: ₹10L monthly revenue.<br/><br/>
+
+                    <strong>Flipkart (Self-Managed):</strong> Already has sophisticated ad stack. Uses Razorpay segments for
+                    incremental targeting. Razorpay provides "L1 Category Lift" segments that outperform Flipkart's own targeting
+                    by 2-3x ROAS. Razorpay gets margin on segment-driven campaigns.
+                </p>
+            </div>
+        </div>
+
+        <!-- Strategic Value -->
+        <div class="section">
+            <div class="section-title">
+                <span>🏆</span> Competitive Advantages & Moat
+            </div>
+
+            <div class="value-prop-grid">
+                <div class="value-prop-card">
+                    <div class="icon">🔐</div>
+                    <h4>First-Party Payment Data</h4>
+                    <p>
+                        Unique to payment gateways. While Google/Meta have browsing data, Razorpay has actual
+                        transaction data = highest intent signal. Impossible for competitors to replicate without
+                        building a payment gateway.
+                    </p>
+                </div>
+
+                <div class="value-prop-card">
+                    <div class="icon">🌐</div>
+                    <h4>Cross-Merchant Intelligence</h4>
+                    <p>
+                        Single user's behavior across 12M+ merchant sites over 10+ years. Publishers only see
+                        their own site data. Creates segments impossible for individual merchants or publishers to build.
+                    </p>
+                </div>
+
+                <div class="value-prop-card">
+                    <div class="icon">💎</div>
+                    <h4>Zero Data Acquisition Cost</h4>
+                    <p>
+                        Data is byproduct of core payment processing. No additional CAC or data licensing fees.
+                        High-margin incremental revenue with minimal COGS compared to traditional data providers.
+                    </p>
+                </div>
+
+                <div class="value-prop-card">
+                    <div class="icon">📈</div>
+                    <h4>Network Effects</h4>
+                    <p>
+                        More merchants → Better transaction data → Superior segments → More advertisers →
+                        Higher demand → Better publisher fill rates → More publishers → Virtuous cycle.
+                    </p>
+                </div>
+
+                <div class="value-prop-card">
+                    <div class="icon">🤝</div>
+                    <h4>Merchant Relationships</h4>
+                    <p>
+                        Already trusted partner for payments. Easy pixel installation on merchant websites.
+                        Merchants share first-party behavioral data because of existing trust. Upsell opportunity to
+                        existing customer base.
+                    </p>
+                </div>
+
+                <div class="value-prop-card">
+                    <div class="icon">🛡️</div>
+                    <h4>Privacy-First Positioning</h4>
+                    <p>
+                        Aggregate cohorts, not individual user targeting. Cookie-less, privacy-compliant approach.
+                        Sustainable competitive advantage as privacy regulations tighten (GDPR, CCPA, etc.).
+                    </p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📊 Accuracy Comparison: Razorpay vs Traditional Platforms</h3>
+                <p>
+                    <strong>Traditional Data Providers:</strong> 60-70% accuracy (probabilistic, modeled from third-party data)<br/>
+                    <strong>Google/Meta:</strong> 65-75% accuracy (interest-based, likes/shares/searches indicate intent)<br/>
+                    <strong>Razorpay Audience Intelligence:</strong> 95%+ accuracy (deterministic, based on actual purchase behavior)<br/><br/>
+
+                    This 25-30% accuracy improvement translates directly to better ROAS, lower CAC, and higher conversion rates
+                    for advertisers—creating willingness to pay premium CPMs for Razorpay segments.
+                </p>
+            </div>
+        </div>
+
+        <!-- Use Cases & Examples -->
+        <div class="section">
+            <div class="section-title">
+                <span>💼</span> Use Cases Across Industries
+            </div>
+
+            <div class="section-subtitle">🏦 BFSI & Fintech</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>💳 Credit Card Acquisition</h3>
+                    <ul>
+                        <li><strong>Target:</strong> Consistent card users for premium banking products</li>
+                        <li><strong>Segment:</strong> "Users with ₹20K+ monthly card spends + income >₹6L"</li>
+                        <li><strong>Publishers:</strong> Truecaller, PhonePe, CRED</li>
+                        <li><strong>Metrics:</strong> CIPA (Cost Per Card Approval) tracking</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🏠 Insurance & Loans</h3>
+                    <ul>
+                        <li><strong>Target:</strong> High-AOV users for term insurance/home loans</li>
+                        <li><strong>Segment:</strong> "Past insurance buyers + income >₹6L + age 28-45"</li>
+                        <li><strong>Publishers:</strong> Navi, FamPay, Flipkart</li>
+                        <li><strong>Metrics:</strong> CPQL (Cost Per Qualified Lead)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>📱 BNPL & Micro-Credit</h3>
+                    <ul>
+                        <li><strong>Target:</strong> First-time credit users switching from COD</li>
+                        <li><strong>Segment:</strong> "Users who switched from COD to prepaid in last 90 days"</li>
+                        <li><strong>Publishers:</strong> E-commerce platforms</li>
+                        <li><strong>Metrics:</strong> CAC, approval rate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-subtitle">🛍️ D2C & Retail</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>💄 Beauty & Personal Care</h3>
+                    <ul>
+                        <li><strong>Target:</strong> Premium brand shoppers for new product launches</li>
+                        <li><strong>Segment:</strong> "Mid-premium beauty buyers (₹500-₹1,200 AOV) showing lift"</li>
+                        <li><strong>Brands:</strong> Mamaearth, The Derma Co, Aqualogica</li>
+                        <li><strong>Results:</strong> 6-26x ROAS vs publisher segments</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>👗 Fashion & Apparel</h3>
+                    <ul>
+                        <li><strong>Target:</strong> Frequent fashion buyers for seasonal collections</li>
+                        <li><strong>Segment:</strong> "Fashion enthusiasts with 3+ purchases in 60 days"</li>
+                        <li><strong>Publishers:</strong> Flipkart, Myntra, aggregator platforms</li>
+                        <li><strong>Metrics:</strong> ROAS, repeat purchase rate</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🍔 Food Delivery & QC</h3>
+                    <ul>
+                        <li><strong>Target:</strong> Active food delivery users for app installs</li>
+                        <li><strong>Segment:</strong> "Weekend warriors + UPI-first users in metro cities"</li>
+                        <li><strong>Advertisers:</strong> Swiggy, Zomato, Blinkit</li>
+                        <li><strong>Metrics:</strong> CAC, app install rate, redemption rate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎯 Success Story: Honasa Consumer (Mamaearth, The Derma Co)</h4>
+                <p>
+                    <strong>Challenge:</strong> Honasa wanted to acquire high-quality beauty customers on Flipkart,
+                    but standard Flipkart targeting was delivering low ROAS (1.23-1.95x).<br/><br/>
+
+                    <strong>Razorpay Solution:</strong> Created "L1 Category Lift" segment—users showing increasing
+                    premium beauty purchase frequency across the Razorpay merchant network.<br/><br/>
+
+                    <strong>Results:</strong><br/>
+                    → Mamaearth L1 segment: 6.3x ROAS (vs 1.95x Flipkart TG)<br/>
+                    → The Derma Co L1 segment: 26.7x ROAS (vs 1.23x Flipkart TG)<br/>
+                    → 3-13x improvement in campaign efficiency<br/>
+                    → Honasa scaled budgets and installed pixels on all brands for L3 targeting
+                </p>
+            </div>
+        </div>
+
+        <!-- Growth Strategy -->
+        <div class="section">
+            <div class="section-title">
+                <span>🚀</span> Growth Strategy & Scaling Levers
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 Three Pillars of Growth</h3>
+                <p>
+                    Razorpay's 3P Ads Network scales through: (1) Expanding advertiser base across new verticals,
+                    (2) Onboarding more publishers to increase inventory, and (3) Deepening data moat through pixel
+                    network expansion. Each lever has compounding network effects.
+                </p>
+            </div>
+
+            <div class="section-subtitle">📈 Pillar 1: Advertiser Expansion</div>
+
+            <div class="info-card" style="margin-bottom: 20px;">
+                <h3>Vertical Expansion Roadmap</h3>
+                <ul>
+                    <li><strong>Current Active:</strong> Beauty & Personal Care, Insurance, Credit Cards, Food Delivery</li>
+                    <li><strong>Near-term Activation:</strong> Fashion & Apparel, Mass BPC, Consumer Electronics</li>
+                    <li><strong>Future Verticals:</strong> Travel & Hospitality, Education & Edtech, Gaming & Entertainment,
+                    Wealth Management & Investments</li>
+                </ul>
+            </div>
+
+            <div class="section-subtitle">📱 Pillar 2: Publisher Network Growth</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Publisher Type</th>
+                        <th>Examples</th>
+                        <th>Inventory Potential</th>
+                        <th>Integration Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>E-commerce Platforms</strong></td>
+                        <td>Flipkart, Myntra, Amazon, Nykaa</td>
+                        <td>2-5M daily impressions each</td>
+                        <td>Self-managed, segment supply</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fintech Apps</strong></td>
+                        <td>FamPay, Navi, CRED, PhonePe, PayTM</td>
+                        <td>5-40M daily impressions</td>
+                        <td>Razorpay-managed or self-serve</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quick Commerce</strong></td>
+                        <td>Blinkit, Zepto, Swiggy Instamart</td>
+                        <td>2-5M daily impressions</td>
+                        <td>Self-managed, non-endemic ads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aggregator Platforms</strong></td>
+                        <td>Truecaller, Makemytrip, Rapido</td>
+                        <td>1-1000M daily impressions</td>
+                        <td>Self-managed programmatic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shopify Merchants</strong></td>
+                        <td>1000+ D2C brand websites</td>
+                        <td>Long-tail inventory</td>
+                        <td>Plugin-based rendering</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-subtitle">🗄️ Pillar 3: Data Moat Deepening</div>
+
+            <div class="info-card" style="margin-bottom: 20px;">
+                <h3>Pixel Network Expansion Strategy</h3>
+                <p style="margin-bottom: 15px;">
+                    Installing tracking pixels on merchant websites creates a dual data stream: payment gateway transactions
+                    + website behavioral data (browse → cart → checkout). This enables advanced "L3 Pixel Lookalike" segments.
+                </p>
+                <ul>
+                    <li><strong>Current Scale:</strong> 10 merchants with pixels installed (7-21% identity resolution rate)</li>
+                    <li><strong>Target:</strong> 25+ merchants by Q1 2026, 100+ merchants by year-end</li>
+                    <li><strong>Merchant Benefits:</strong> Free analytics, retargeting capabilities, better ad performance</li>
+                    <li><strong>Razorpay Benefits:</strong> Richer segments, merchant-as-advertiser pipeline, stronger data moat</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Integration -->
+        <div class="section">
+            <div class="section-title">
+                <span>⚙️</span> Technical Architecture Overview
+            </div>
+
+            <div class="flowchart-container">
+                <div class="mermaid">
+graph TB
+    subgraph PublisherIntegration["📱 Publisher Integration Layer"]
+        A["REST API<br/>Fetch Ads + Track Events"]
+        B["Mobile SDK<br/>Android/iOS"]
+        C["JavaScript Tag<br/>Web Integration"]
+        D["Shopify Plugin<br/>No-code Setup"]
+    end
+
+    subgraph AdPlatform["⚙️ Razorpay Ad Platform"]
+        E["Ad Server<br/>Slot Matching & Ranking"]
+        F["Campaign Manager<br/>Budget & Frequency Control"]
+        G["Attribution Engine<br/>Pixel + S2S Tracking"]
+        H["Analytics Dashboard<br/>Advertiser & Publisher Reporting"]
+    end
+
+    subgraph DataInfra["🗄️ Data Infrastructure"]
+        I["CDP (Customer Data Platform)<br/>Segment Identification"]
+        J["Transaction Database<br/>Payment Gateway Data"]
+        K["Pixel Data Warehouse<br/>Behavioral Signals"]
+        L["ML Models<br/>Lookalike & Scoring"]
+    end
+
+    subgraph External["🔌 External Integrations"]
+        M["Advertiser Platforms<br/>Meta, Google Ads, DV360"]
+        N["Publisher Ad Servers<br/>Self-managed publishers"]
+        O["Measurement Partners<br/>Third-party attribution"]
+    end
+
+    A --> E
+    B --> E
+    C --> E
+    D --> E
+
+    E --> I
+    E --> F
+    E --> G
+
+    F --> H
+    G --> H
+
+    I --> J
+    I --> K
+    I --> L
+
+    E --> N
+    H --> M
+    G --> O
+
+    classDef integrationStyle fill:#e1f5ff,stroke:#072B6F,stroke-width:2px
+    classDef platformStyle fill:#fef5e7,stroke:#f59e0b,stroke-width:2px
+    classDef dataStyle fill:#fee2e2,stroke:#dc2626,stroke-width:2px
+    classDef externalStyle fill:#d1fae5,stroke:#059669,stroke-width:2px
+
+    class A,B,C,D integrationStyle
+    class E,F,G,H platformStyle
+    class I,J,K,L dataStyle
+    class M,N,O externalStyle
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🔧 Publisher-Facing APIs</h3>
+                    <ul>
+                        <li><strong>POST /v1/ads/serve:</strong> Fetch targeted ads for user + slot combination</li>
+                        <li><strong>POST /v1/ads/track/impression:</strong> Record ad impression event</li>
+                        <li><strong>POST /v1/ads/track/click:</strong> Record ad click event</li>
+                        <li><strong>POST /v1/ads/{ad_id}/rewards:</strong> Claim reward/coupon for ad</li>
+                        <li><strong>Latency:</strong> Sub-200ms p99 for ad serving</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>📊 Campaign Management</h3>
+                    <ul>
+                        <li>Create campaigns with targeting rules, budgets, pricing models (CPM/CPC/CPA)</li>
+                        <li>Upload creatives (banners, scratch cards, video - future)</li>
+                        <li>Define frequency caps (daily/weekly/monthly per user)</li>
+                        <li>Real-time budget tracking and pacing (even/ASAP/custom)</li>
+                        <li>Publisher allocation and category exclusions</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Targeting & Ranking</h3>
+                    <ul>
+                        <li>Real-time CDP integration for segment identification</li>
+                        <li>User-level targeting: RFM, category affinity, demographic filters</li>
+                        <li>Candidate ad selection based on segment match + budget availability</li>
+                        <li>Ranking engine: bid value, pacing, predicted CTR/ROAS</li>
+                        <li>Guardrails: frequency caps, brand safety, category blocks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Metrics -->
+        <div class="section">
+            <div class="section-title">
+                <span>📊</span> Success Metrics & KPIs
+            </div>
+
+            <div class="section-subtitle">📢 Advertiser Metrics</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Definition</th>
+                        <th>Target Range</th>
+                        <th>Industry Benchmark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ROAS</strong></td>
+                        <td>Return on Ad Spend (Revenue / Ad Spend)</td>
+                        <td>2x - 4x for D2C, 6x+ for premium segments</td>
+                        <td>1.5x - 2x (traditional platforms)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CAC</strong></td>
+                        <td>Customer Acquisition Cost</td>
+                        <td>₹100-200 for food delivery, ₹500+ for fintech</td>
+                        <td>25% lower than Google/Meta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPQL</strong></td>
+                        <td>Cost Per Qualified Lead (BFSI)</td>
+                        <td>₹400-500 for insurance</td>
+                        <td>₹600-800 (traditional)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CIPA</strong></td>
+                        <td>Cost Per Card Approval</td>
+                        <td>₹800-1,000</td>
+                        <td>₹1,200-1,500 (traditional)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CTR</strong></td>
+                        <td>Click-Through Rate</td>
+                        <td>1.5% - 3%</td>
+                        <td>0.5% - 1% (display ads)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-subtitle">📱 Publisher Metrics</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Definition</th>
+                        <th>Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fill Rate</strong></td>
+                        <td>% of ad requests filled with ads</td>
+                        <td>50%+ for managed, 30%+ for self-serve</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPD (Cost Per Download)</strong></td>
+                        <td>Revenue per app download/session</td>
+                        <td>₹0.4+ (varies by publisher)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yield (CPM)</strong></td>
+                        <td>Effective revenue per 1,000 impressions</td>
+                        <td>₹50+ target yield</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revenue per MAU</strong></td>
+                        <td>Monthly ad revenue / Monthly Active Users</td>
+                        <td>Varies by publisher type</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-subtitle">⚙️ Platform Metrics</div>
+
+            <div class="stats-banner">
+                <div class="stat-item">
+                    <div class="stat-label">Ad Serving Latency</div>
+                    <div class="stat-value">&lt;200ms</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">API Uptime</div>
+                    <div class="stat-value">99.9%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Segment Accuracy</div>
+                    <div class="stat-value">95%+</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Target Margin</div>
+                    <div class="stat-value">20-30%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Roadmap -->
+        <div class="section">
+            <div class="section-title">
+                <span>🔮</span> Future Roadmap & Opportunities
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card" style="border-left-color: #059669;">
+                    <h3>🎨 New Ad Formats</h3>
+                    <ul>
+                        <li><strong>Current:</strong> Banner ads, scratch cards, native formats</li>
+                        <li><strong>Planned:</strong> Video ads, voice ads, interactive formats</li>
+                        <li><strong>Future:</strong> AR/VR experiences, gamified ads</li>
+                        <li><strong>Impact:</strong> Higher engagement, better CPMs</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #dc2626;">
+                    <h3>🤖 AI-Powered Optimization</h3>
+                    <ul>
+                        <li><strong>Predictive ROAS:</strong> ML models forecasting campaign performance</li>
+                        <li><strong>Dynamic Bidding:</strong> Auto-optimize CPC based on segment quality</li>
+                        <li><strong>Creative Optimization:</strong> A/B test variations, personalization</li>
+                        <li><strong>Churn Prediction:</strong> Identify at-risk advertisers proactively</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #f59e0b;">
+                    <h3>🌐 Self-Service Platform</h3>
+                    <ul>
+                        <li><strong>Current:</strong> Manual campaign management by Razorpay team</li>
+                        <li><strong>Future:</strong> Advertiser dashboard for DIY campaign creation</li>
+                        <li><strong>Features:</strong> Segment selector, real-time bidding, performance analytics</li>
+                        <li><strong>Benefit:</strong> Unlock long-tail advertisers, reduce ops overhead</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #0A4099;">
+                    <h3>📊 Cross-Channel Attribution</h3>
+                    <ul>
+                        <li><strong>Multi-touch Attribution:</strong> Track customer journey across touchpoints</li>
+                        <li><strong>Incrementality Testing:</strong> Measure true lift vs organic</li>
+                        <li><strong>Publisher Attribution:</strong> Credit correct publisher for conversions</li>
+                        <li><strong>Advertiser Reporting:</strong> Unified view across Razorpay + external channels</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #528AAE;">
+                    <h3>🔗 Programmatic Integration</h3>
+                    <ul>
+                        <li><strong>DSP Partnerships:</strong> Direct integration with DV360, Trade Desk</li>
+                        <li><strong>SSP for Publishers:</strong> Razorpay as SSP for publisher monetization</li>
+                        <li><strong>Private Marketplace:</strong> Invite-only deals for premium inventory</li>
+                        <li><strong>Benefit:</strong> Access broader advertiser/publisher base</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #6366f1;">
+                    <h3>🌍 Geographic Expansion</h3>
+                    <ul>
+                        <li><strong>Current:</strong> India-focused (220M users)</li>
+                        <li><strong>Near-term:</strong> Southeast Asia (Malaysia, Singapore)</li>
+                        <li><strong>Long-term:</strong> Middle East, US markets</li>
+                        <li><strong>Leverage:</strong> Razorpay's international PG presence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="section">
+            <div class="section-title">
+                <span>🎯</span> Summary & Key Takeaways
+            </div>
+
+            <div class="highlight-box">
+                <h3>🚀 The Razorpay Advantage</h3>
+                <p>
+                    Razorpay's 3P Ads Network is uniquely positioned at the intersection of payments and advertising.
+                    By monetizing first-party transaction data—the highest intent signal—through a three-sided marketplace,
+                    Razorpay creates value for all participants: advertisers get superior targeting, publishers get incremental
+                    revenue, and Razorpay earns high-margin revenue from a byproduct of its core business.
+                </p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card" style="border-left-color: #059669;">
+                    <h3>✅ What Makes This Model Work</h3>
+                    <ul>
+                        <li>95%+ accuracy from deterministic transaction data</li>
+                        <li>220M+ user profiles across 12M+ merchants</li>
+                        <li>10+ years of purchase history and behavioral patterns</li>
+                        <li>Zero marginal data acquisition cost</li>
+                        <li>Trusted relationships with merchants and publishers</li>
+                        <li>Privacy-compliant aggregate targeting</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #0A4099;">
+                    <h3>📈 Growth Flywheel</h3>
+                    <ul>
+                        <li><strong>More Merchants</strong> → Better transaction data coverage</li>
+                        <li><strong>Better Data</strong> → Superior audience segments</li>
+                        <li><strong>Superior Segments</strong> → Attract more advertisers</li>
+                        <li><strong>More Advertisers</strong> → Higher demand for publisher inventory</li>
+                        <li><strong>More Publishers</strong> → Expanded reach for advertisers</li>
+                        <li><strong>Ecosystem Growth</strong> → Stronger competitive moat</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="border-left-color: #f59e0b;">
+                    <h3>💰 Economic Model</h3>
+                    <ul>
+                        <li>20-30% net margin on advertiser spend</li>
+                        <li>High-margin incremental revenue (low COGS)</li>
+                        <li>Scalable with minimal additional infrastructure</li>
+                        <li>Multiple pricing models (CPM/CPC/CPA)</li>
+                        <li>Revenue diversification from core payments</li>
+                        <li>Potential: ₹50-100Cr+ at scale</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎯 The Bottom Line</h4>
+                <p>
+                    Razorpay's 3P Ads Network transforms transaction data into a strategic asset, creating a sustainable,
+                    high-margin revenue stream while strengthening the core payment ecosystem. As privacy regulations tighten
+                    and third-party cookies disappear, first-party data becomes increasingly valuable—positioning Razorpay
+                    to capture significant market share in the ₹30,000+ Cr Indian digital advertising market.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 20px; color: white;">
+            <p style="font-size: 18px; margin-bottom: 10px; font-weight: 600;">
+                Razorpay 3P Ads Network - Business Model Documentation
+            </p>
+            <p style="opacity: 0.8; font-size: 14px;">
+                Transforming Transaction Data into Advertising Intelligence
+            </p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
+                width: 150,
+                height: 65,
+                boxMargin: 10
+            }
+        });
+    </script>
+</body>
+</html>
